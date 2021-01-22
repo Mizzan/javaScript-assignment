@@ -2,6 +2,9 @@
 -------------------------------------------------------------------
 ------------- Author Name : Mizanur Rahman ------------------------
 ------------- Assignmnet 3 on JavaScript Problem Solving ----------
+------------- My helping buddies 👇 -------------------------------
+-------------😎 Google, stackOverFlow, mdn, w3schools 😎----------
+-------------------------------------------------------------------
 -------------------------------------------------------------------*/
 
 // Here is the Github repo link of the assignment
@@ -115,3 +118,39 @@ function hotelCost(numberOfDayStay) {
 // hotelCost(-2) // negative number check
 // hotelCost('ss') // string check
 // hotelCost(30) // correct expected result check
+
+/*-----------------------------------------------------------------
+-------------------------------------------------------------------
+------------------------ Problem Solving #4 -----------------------
+------------------------ megaFriend --------------------------------
+-------------------------------------------------------------------*/
+
+function megaFriend(namesOfFriends) {
+  if (namesOfFriends.length > 0 && Array.isArray(namesOfFriends)) {
+    //   checking if it an array and it is not empty
+    let longestNameOfFriend = namesOfFriends[0];
+
+    for (let i = 1; i < namesOfFriends.length; i++) {
+      //   storing the names into the longestName variable
+      let longestName = namesOfFriends[i];
+
+      //   checking which name is the longest
+      if (longestName.length > longestNameOfFriend.length) {
+        //   reassigning the longest name into longestNameOfFriend varaible
+        longestNameOfFriend = longestName;
+      }
+    }
+    //   returing the longestNameOfFriend varaible
+    return longestNameOfFriend;
+  } else {
+    return "Name should not be string or empty and it should be an array of names.";
+  }
+}
+// megaFriend('ss') // string check
+// megaFriend(['Raju','Sanju','Chowdhury']) // correct expected result check
+
+/*-----------------------------------------------------------------
+-------------------------------------------------------------------
+---------------------------- The End  -----------------------------
+-------------------------------------------------------------------
+-------------------------------------------------------------------*/
