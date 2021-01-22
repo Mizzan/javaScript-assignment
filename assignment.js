@@ -28,7 +28,7 @@ function kilometerToMeter(kilometerValue) {
 
 // kilometerToMeter("stringCheck"); // string check
 // kilometerToMeter(-23); // negative number check
-// kilometerToMeter(23);  // expected result check
+// kilometerToMeter(23);  // correct expected result check
 
 /*-----------------------------------------------------------------
 -------------------------------------------------------------------
@@ -62,4 +62,56 @@ function budgetCalculator(numberOfWatch, numberOfPhone, numberOfLaptop) {
 
 // budgetCalculator(5, "asd", 2); // string check
 // budgetCalculator(-3, 5, 2); // negative number check
-// budgetCalculator(5, 3, 2); // expected number check
+// budgetCalculator(5, 3, 2); // correct expected number check
+
+/*-----------------------------------------------------------------
+-------------------------------------------------------------------
+------------------------ Problem Solving #3 -----------------------
+------------------------ hotelCost --------------------------------
+-------------------------------------------------------------------*/
+
+function hotelCost(numberOfDayStay) {
+  // declaring all the variable first
+  var costOfFirstTenDays = 100; // First 10 day stay cost
+  var costOfAfterTenDays = 80; // Stay cost after ten day
+  var costOfAfterTwentyDays = 50; // Stay cost after twenty day
+
+  var daysRemaining;
+  var costOfRemainingDays;
+
+  if (numberOfDayStay == null) {
+    // checking if the number of days is not empty
+    return "Days number should not be empty, Enter a number";
+  }
+  if (isNaN(numberOfDayStay)) {
+    // checking if the number of days is not a string input
+    return "Days number should not be a string, Enter a valid number";
+  }
+  if (numberOfDayStay < 0) {
+    // checking if the number of days is not a negative number
+    return "Days number should not be a nagative number, Enter a positive number";
+  }
+
+  if (numberOfDayStay > 20) {
+    // checking if the number of days stay is greater than 20 days
+    daysRemaining = numberOfDayStay - 20; // calculating the remaining days
+    costOfRemainingDays = daysRemaining * costOfAfterTwentyDays; // calculating the remaining days cost
+
+    return (
+      // calculating the cost of after twenty days
+      costOfRemainingDays + costOfAfterTenDays * 10 + costOfFirstTenDays * 10
+    );
+  } else if (numberOfDayStay <= 20 && numberOfDayStay > 10) {
+    // checking if the number of days stay is less than 20 and greater than 10
+    daysRemaining = numberOfDayStay - 10;
+    costOfRemainingDays = daysRemaining * costOfAfterTenDays;
+    // calculating the cost of after ten days
+    return costOfRemainingDays + costOfFirstTenDays * 10;
+  } else {
+    // calculating the cost of ten days
+    return numberOfDayStay * costOfFirstTenDays;
+  }
+}
+// hotelCost(-2) // negative number check
+// hotelCost('ss') // string check
+// hotelCost(30) // correct expected result check
